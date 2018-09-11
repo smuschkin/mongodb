@@ -6,7 +6,12 @@
   <title>Scraping With Mongoose</title>
   <style>
     body {
-      background-color: #F2F6D0
+      background-color: rgb(43, 220, 226)
+    }
+
+    h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 70px;
     }
 
     #wrapper {
@@ -19,7 +24,6 @@
     #articles {
       display: inline-block;
       overflow: auto;
-      width: 60%;
       height: 700px;
     }
 
@@ -28,11 +32,19 @@
       width: 30%;
     }
 
+    #scraperButton {
+      font-family: 'Courier New', Courier, monospace;
+      color: aqua;
+      font-size: 50px;
+      background-color: black;
+      margin: 20px;
+    }
+
     textarea,
     input {
       display: block;
-      width: 100%;
       background-color: #FCF5C7;
+      /* margin-left: 50px; */
     }
 
     input {
@@ -44,14 +56,24 @@
       height: 200px;
       font-size: 18px;
     }
+
+    .articlediv {
+      border: dotted black;
+      /* padding-left: 250px;  */
+    }
   </style>
 </head>
 
 <body>
   <div id="wrapper">
     <h1>Scraper for 60 Minutes</h1>
-    <button id="scraperButton">Scrape</button>
-    <div id="articles"></div>
+    <div>
+      <button id="scraperButton">Scrape</button>
+      <br>
+    </div>
+    <div class="articlediv">
+      <div id="articles"></div>
+    </div>
     <div id="notes"></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
