@@ -1,8 +1,9 @@
 $.getJSON("/articles", function (data) {
+  $("#articles").empty();
 
   for (var i = 0; i < data.length; i++) {
 
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'> <a href='https://www.cbsnews.com/" + data[i].link + "'>" + data[i].title + " </a> <br/> <p> " + data[i].summary + " </p> </p>");
   }
 });
 
@@ -34,6 +35,24 @@ $(document).on("click", "p", function () {
         $("#bodyinput").val(data.note.body);
       }
     });
+});
+
+$(document).on("click", "#scraperButton", function () {
+  $.ajax({
+    method: "GET",
+    url: "/scrape/",
+  })
+    .then(function () {
+      $.getJSON("/articles", function (data) {
+        $("#articles").empty();
+
+        for (var i = 0; i < data.length; i++) {
+
+          $("#articles").append("<p data-id='" + data[i]._id + "'> <a href='https://www.cbsnews.com/" + data[i].link + "'>" + data[i].title + " </a> <br/> <p> " + data[i].summary + " </p> </p>");
+        }
+      });
+    })
+
 });
 
 // When you click the savenote button
